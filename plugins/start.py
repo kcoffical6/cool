@@ -79,28 +79,23 @@ async def start_command(client: Client, message: Message):
             )
 
             try:
-                media = await msg.copy(
+                await msg.copy(
                     chat_id=message.from_user.id,
                     caption = caption,
                     parse_mode=ParseMode.HTML,
                     reply_markup=reply_markup,
                     protect_content=PROTECT_CONTENT
                 )
-                alert = await message.reply('<a href="https://t.me/Kan_Serial">Don,t Click Here</a>')
-                await asyncio.sleep(30)
-                await alert.delete()
+                await asyncio.sleep(0.5)
             except FloodWait as error:
                 await asyncio.sleep(error.x)
-                media = await msg.copy(
+                await msg.copy(
                     chat_id=message.from_user.id,
                     caption = caption,
                     parse_mode=ParseMode.HTML,
                     reply_markup=reply_markup,
                     protect_content=PROTECT_CONTENT
                 )
-                alert = await message.reply('<a href="https://t.me/Kan_Serial">Don,t Click Here</a>')
-                await asyncio.sleep(30)
-                await alert.delete()
             except Exception:
                 pass
         return
