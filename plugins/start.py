@@ -76,11 +76,16 @@ async def start_command(client: Client, message: Message):
                 reply_markup = None
 
             try:
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-                await asyncio.sleep(0.5)
+                media = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Request Group", url="https://t.me/Kan_Serial")]]), protect_content=PROTECT_CONTENT)
+                alert = await message.reply('Don,t Click Here</b> <a href="https://t.me/Kan_Serial"></a>')
+                await asyncio.sleep(30)
+                await alert.delete()
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                 media = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Request Group", url="https://t.me/Kan_Serial")]]), protect_content=PROTECT_CONTENT)
+                alert = await message.reply('Don,t Click Here</b> <a href="https://t.me/Kan_Serial"></a>')
+                await asyncio.sleep(30)
+                await alert.delete()
             except:
                 pass
         return
