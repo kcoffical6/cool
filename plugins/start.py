@@ -98,9 +98,6 @@ async def start_command(client: Client, message: Message):
                     reply_markup=reply_markup,
                     protect_content=PROTECT_CONTENT
                 )
-                alert = await message.reply('<a href="https://t.me/Kan_Serial">Don,t Click Here</a>')
-                await asyncio.sleep(30)
-                await alert.delete()
             except Exception:
                 pass
         return
